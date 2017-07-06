@@ -3,7 +3,8 @@ var quotes = Quotes();
 
 
 /*---------------------Program Functions-------------------------*/
-//Quote function
+//Quote function that returns an object with all methods needed to get quotes
+//This function will return a randomized array by default
 function Quotes(){
   let output = {
     quotes: [
@@ -60,10 +61,12 @@ function Quotes(){
 
   }
   //function that regenerates/randomizes the quotes lists
+  //remember that calling the Quotes() method always randomizes the internal
+  //array
   function regen(arr){
     let a = Quotes();
     arr = a.quotes;
-    return randomize(arr); //randomize the quotes list and return
+    return arr;
   }
   //function that randomizes the quotes list
   function randomize(arr){
@@ -81,6 +84,7 @@ function Quotes(){
       }
         return arr;
   }
+  output.quotes = randomize(output.quotes);
   return output;
 }
 
