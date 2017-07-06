@@ -1,11 +1,11 @@
 /*---------------------Program Variables-------------------------*/
-var quotes = Quotes();
+var quotes = quotes();
 
 
 /*---------------------Program Functions-------------------------*/
 //Quote function that returns an object with all methods needed to get quotes
 //This function will return a randomized array by default
-function Quotes(){
+function quotes(){
   let output = {
     quotes: [
       {quote:"I’ve got a bad feeling about this.",
@@ -61,10 +61,10 @@ function Quotes(){
 
   }
   //function that regenerates/randomizes the quotes lists
-  //remember that calling the Quotes() method always randomizes the internal
+  //remember that calling the quotes() method always randomizes the internal
   //array
   function regen(arr){
-    let a = Quotes();
+    let a = quotes();
     arr = a.quotes;
     return arr;
   }
