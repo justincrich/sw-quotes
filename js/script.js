@@ -52,7 +52,7 @@ function Quotes(){
         }
       ],
     randomize: ()=>{
-      let arr = this.quotes;
+      let arr = output.quotes;
       let i = arr.length;
       let j = 0;
       let temp;
@@ -65,16 +65,20 @@ function Quotes(){
         arr[i] = arr[j];
         arr[j] = temp;
       }
-        this.quotes = arr;
+        output.quotes = arr;
     },
     regen:()=>{
-      this = Quotes();
+      let a = Quotes();
+      output.quotes = a.quotes;
+    },
+    printb:()=>{
+      console.log(output);
     },
     getRandomQuote: ()=>{
-      if(this.quotes.length === 0){
-        this.regen();
+      if(output.quotes.length === 0){
+        output.regen();
       }
-      return this.quotes.shift();
+      return output.quotes.shift();
     }
 
   }
