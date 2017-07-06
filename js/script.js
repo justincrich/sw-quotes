@@ -51,8 +51,22 @@ function Quotes(){
         tags:['droid']
         }
       ],
-    randomize: ()=>{
-      let arr = output.quotes;
+    getRandomQuote: ()=>{
+      if(output.quotes.length === 0){
+        output.quotes = regen(output.quotes);
+      }
+      return output.quotes.shift();
+    }
+
+  }
+  //function that regenerates/randomizes the quotes lists
+  function regen(arr){
+    let a = Quotes();
+    arr = a.quotes;
+    return randomize(arr); //randomize the quotes list and return
+  }
+  //function that randomizes the quotes list
+  function randomize(arr){
       let i = arr.length;
       let j = 0;
       let temp;
@@ -65,31 +79,9 @@ function Quotes(){
         arr[i] = arr[j];
         arr[j] = temp;
       }
-        output.quotes = arr;
-    },
-    regen:()=>{
-      let a = Quotes();
-      output.quotes = a.quotes;
-    },
-    printb:()=>{
-      console.log(output);
-    },
-    getRandomQuote: ()=>{
-      if(output.quotes.length === 0){
-        output.regen();
-      }
-      return output.quotes.shift();
-    }
-
+        return arr;
   }
   return output;
-}
-
-//function that returns a random quote object
-function getRandomQuote(){
-  //if quotes are empty then regenerate and randomize
-
-
 }
 
 function printQuote(){
