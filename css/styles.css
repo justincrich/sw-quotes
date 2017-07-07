@@ -4,7 +4,7 @@ body {
   color: #feda4a;
   font-family: 'Pathway Gothic One', sans-serif;
 }
-
+/*------------BACKGROUND IMAGE STYLING------------*/
 .background{
   position: absolute;
   display: flex;
@@ -27,6 +27,7 @@ body {
   background: #000;
   opacity: .7;
 }
+/*------------STYLING FOR QUOTE TEXT------------*/
 
 #quote-box {
   position: fixed;
@@ -81,7 +82,7 @@ body {
   content: ", ";
   font-style: normal;
 }
-
+/*------------BUTTON STYLING------------*/
 #loadQuote {
   font-family: 'Star Jedi Logo MonoLine', arial;
   letter-spacing:.09em;
@@ -106,7 +107,7 @@ body {
 #loadQuote:focus {
   outline: none;
 }
-
+/*------------MEDIA QUERIES----------------*/
 @media (max-width: 650px) {
   #loadQuote{
     left: 50%;

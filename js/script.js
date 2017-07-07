@@ -1,6 +1,9 @@
 /*---------------------Program Variables-------------------------*/
+//Tees up the quotes for the page
 var quotes = Quotes();
+//prints the first quote to the page
 printQuote();
+//holds a reference to the timeout function so we can reset it
 var time = timeout();
 
 
@@ -8,7 +11,7 @@ var time = timeout();
 //Quote function that returns an object with all methods needed to get quotes
 //This function will return a randomized array by default
 function Quotes(){
-
+  //output object that holds the methods/variables for the quotes
   let output = {
     quotes: [
       {quote:"I’ve got a bad feeling about this.",
@@ -87,12 +90,13 @@ function Quotes(){
       }
         return arr;
   }
+  //randomize the array of quotes
   output.quotes = randomize(output.quotes);
   return output;
 }
 
 
-
+//Function responsible for printing a new quote
 function printQuote(){
 
   let randQuote = quotes.getRandomQuote();
@@ -103,6 +107,7 @@ function printQuote(){
   let citationText = document.querySelector('.citation');
   let yearText = document.querySelector('.year');
   img.src = randQuote.img;
+  //wait for the image to load from remote storage
   img.addEventListener('load',()=>{
     quoteText.innerHTML = randQuote.quote;
     nameText.innerHTML = randQuote.source;
@@ -114,7 +119,8 @@ function printQuote(){
 }
 
 /*----------------PAGE ACTIONS-------------------------------*/
-//Quote Slideshow Scroller
+//Quote Slideshow timeout function, being recursively called
+//so timeout resets
 function timeout(){
   clearTimeout(time);
   console.log("timeout");
