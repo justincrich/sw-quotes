@@ -17,7 +17,7 @@ body {
 .backgroundImg{
   /*max-width:1500px;*/
   z-index: -101;
-  width: 100%
+  min-width: 1600px;
 }
 .cover{
   z-index:-100;
@@ -109,12 +109,19 @@ body {
 }
 /*------------MEDIA QUERIES----------------*/
 @media (max-width: 650px) {
+  #quote-box {
+    top:15%;
+  }
   #loadQuote{
     left: 50%;
     transform: translateX(-50%);
     width:90%;
     align-self: center;
     margin:1em 0;
+  }
+  .backgroundImg{
+    min-width: auto;
+    width:800px;
   }
   .quote {
     font-size: 2.5rem;
