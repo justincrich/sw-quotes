@@ -18,9 +18,9 @@ function Quotes(){
        source:"Han Solo",
         citation:"A New Hope",
         date:"1977",
-        img:"http://cdn.mos.cms.futurecdn.net/JSP98spa8obTESrhUQb69P.jpg",
+        img:"https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/01/26/15/harrison-ford-han-solo.jpg",
         catagories:['a_new_hope'],
-        tags:['Smuggler','Episode 4','CBFF','Rebel Leaders']},
+        tags:['Scoundrel','Episode 4','CBFF','Rebel Leaders']},
       {quote:"Do. Or do not. There is no try.",
        source:"Yoda",
         citation:"Empire Strikes Back",
@@ -46,7 +46,7 @@ function Quotes(){
        source:"Leia Organa",
         citation:"A New Hope",
         date:"1977",
-        img:'http://www.scifimoviepage.com/wp-content/uploads/2015/10/carrie_fisher_026_by_dave_daring-d679fpu.jpg',
+        img:'http://cdn.playbuzz.com/cdn/ebd69144-fbc5-4a11-82f8-2c82a4bec2a3/9dfc6763-b854-495d-8ee0-0ac93694877a.jpg',
         catagories:['a_new_hope','rebellion'],
         tags:['iconic','Princess Leia','Rebel Leaders']},
       {quote:"You’re letting her keep it?! Would you like to know the probability of her using it against you? It’s high. It’s very high.",
@@ -56,7 +56,15 @@ function Quotes(){
         img:'http://static.srcdn.com/wp-content/uploads/2016/10/K-2SO-in-Star-Wars-Rogue-One.jpg',
         catagories:['rogue_one','rebellion'],
         tags:['droid']
-        }
+        },
+        {quote:"This deal is getting worse all the time!",
+         source:"Lando Calrissian",
+          citation:"Empire Strikes Back",
+          date:"1980",
+          img:'http://static.srcdn.com/wp-content/uploads/2016/10/Billy-Dee-Williams-as-Lando-Calrissian.jpg',
+          catagories:['scoundrel','empire_strikes_back','rebellion'],
+          tags:['scoundrel']
+          }
       ],
       getRandomQuote: ()=>{
         if(output.quotes.length === 0){
