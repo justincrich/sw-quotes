@@ -1,11 +1,14 @@
 /*---------------------Program Variables-------------------------*/
-var quotes = quotes();
+var quotes = Quotes();
+printQuote();
+var time = timeout();
 
 
 /*---------------------Program Functions-------------------------*/
 //Quote function that returns an object with all methods needed to get quotes
 //This function will return a randomized array by default
-function quotes(){
+function Quotes(){
+
   let output = {
     quotes: [
       {quote:"I’ve got a bad feeling about this.",
@@ -33,7 +36,7 @@ function quotes(){
        source:"Admiral Ackbar",
         citation:"Return of the Jedi",
         date:"1983",
-        img:"https://i.ytimg.com/vi/4F4qzPbcFiA/maxresdefault.jpg",
+        img:"http://www.telegraph.co.uk/content/dam/TV/March%202016/Admiral-Ackbar-xlarge.jpg",
         catagories:['return_of_the_jedi','rebellion'],
         tags:['Rebellion','Battel of Endor','Rebel Leaders']},
       {quote:"Help me, Obi-Wan Kenobi. You’re my only hope.",
@@ -52,11 +55,11 @@ function quotes(){
         tags:['droid']
         }
       ],
-    getRandomQuote: ()=>{
-      if(output.quotes.length === 0){
-        output.quotes = regen(output.quotes);
-      }
-      return output.quotes.shift();
+      getRandomQuote: ()=>{
+        if(output.quotes.length === 0){
+          output.quotes = regen(output.quotes);
+        }
+        return output.quotes.shift();
     }
 
   }
@@ -64,7 +67,7 @@ function quotes(){
   //remember that calling the quotes() method always randomizes the internal
   //array
   function regen(arr){
-    let a = quotes();
+    let a = Quotes();
     arr = a.quotes;
     return arr;
   }
@@ -88,20 +91,41 @@ function quotes(){
   return output;
 }
 
+
+
 function printQuote(){
+
   let randQuote = quotes.getRandomQuote();
+  console.log(randQuote);
+  let img = document.querySelector('.backgroundImg');
   let quoteText = document.querySelector('.quote');
-  let sourceText = document.querySelector('.source');
+  let nameText = document.querySelector('.name');
   let citationText = document.querySelector('.citation');
   let yearText = document.querySelector('.year');
-  quoteText.innerHTML = randQuote.quote;
-  sourceText.innerHTML = randQuote.source;
-  citationText.innerHTML = randQuote.citation;
-  yearText.innerHTML = randQuote.date;
-  console.log(randQuote);
+  img.src = randQuote.img;
+  img.addEventListener('load',()=>{
+    quoteText.innerHTML = randQuote.quote;
+    nameText.innerHTML = randQuote.source;
+    citationText.innerHTML = randQuote.citation;
+    yearText.innerHTML = randQuote.date;
+
+  });
+
 }
 
 /*----------------PAGE ACTIONS-------------------------------*/
-// "Show Quote" event listener
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 //Quote Slideshow Scroller
+function timeout(){
+  clearTimeout(time);
+  console.log("timeout");
+  return setTimeout(()=>{
+    printQuote();
+    timeout();
+  },5000);
+}
+// "Show Quote" event listener
+document.getElementById('loadQuote').addEventListener("click", ()=>{
+  printQuote();
+  clearTimeout(time);
+  time = timeout();
+}, false);
